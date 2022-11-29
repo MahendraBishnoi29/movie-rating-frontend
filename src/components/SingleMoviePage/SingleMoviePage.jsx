@@ -71,7 +71,7 @@ const SingleMoviePage = () => {
     );
 
   const {
-    trailer,
+    trailer = "",
     poster,
     storyLine,
     director = {},
