@@ -14,13 +14,11 @@ let intervalId;
 
 const HeroSlideShow = () => {
   const [currentSlide, setCurrentSlide] = useState({});
-  const [clonedSlide, setClonedSlide] = useState({});
   const [visible, setVisible] = useState(true);
   const [upNext, setUpNext] = useState([]);
   const [slides, setSlides] = useState([]);
 
   const slideRef = useRef();
-  const clonedSlideRef = useRef();
 
   // Fetch Latest Uploads
   const fetchLatestUploads = async () => {
@@ -64,8 +62,6 @@ const HeroSlideShow = () => {
 
   // Next Slide
   const handleOnNextClick = () => {
-    setClonedSlide(slides[count]);
-
     count = (count + 1) % slides.length;
     setCurrentSlide(slides[count]);
 
@@ -76,8 +72,6 @@ const HeroSlideShow = () => {
 
   // Prev Slide
   const handleOnPrevClick = () => {
-    setClonedSlide(slides[count]);
-
     count = (count + slides.length - 1) % slides.length;
     setCurrentSlide(slides[count]);
 
@@ -94,8 +88,6 @@ const HeroSlideShow = () => {
       "slide-out-to-left",
     ];
     slideRef.current.classList.remove(...classes);
-
-    setClonedSlide({});
   };
 
   useEffect(() => {
